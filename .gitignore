@@ -1,0 +1,8 @@
+/bin/
+/dev/
+/data/
+bridge.yaml
+state.json
+sessions.json
+*.wav
+*.raw

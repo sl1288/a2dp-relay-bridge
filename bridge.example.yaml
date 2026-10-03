@@ -1,0 +1,57 @@
+# Example configuration of the A2DP relay bridge. Copy it to bridge.yaml
+# (in Docker: into the /data volume) and adjust the addresses.
+# Every setting below is optional unless marked as required.
+
+music_assistant:
+  # Sendspin endpoint of Music Assistant (required).
+  sendspin_url: ws://music-assistant.local:8927/sendspin
+
+web:
+  listen: ":8099"
+  # Optional login through Home Assistant (single sign-on). The URL is the one
+  # your browser uses to reach Home Assistant. Without it, the web interface
+  # is open to everyone who can reach the port.
+  # auth:
+  #   home_assistant: https://homeassistant.example.com
+  #   admin_only: true
+
+# Written by the bridge: paired headphones, player IDs, volumes, keys.
+state_file: /data/state.json
+
+# The ESP32 relay nodes (ESPHome component a2dp_relay), host:port.
+nodes:
+  - address: a2dp-relay-living-room.local:6055
+    name: Living room
+  # - address: a2dp-relay-office.local:6055
+  #   name: Office
+  #   rssi_offset: 0    # dB added to this node's readings (antenna differences)
+
+# When the stream moves to the node with better reception.
+# handover:
+#   hysteresis_db: 8
+#   hold: 5s
+#   min_dwell: 30s
+#   stale_after: 15s
+#   time_constant: 3s
+#   min_rssi: -95
+
+# streaming:
+#   node_buffer: 200ms
+#   output_latency: 150ms   # node to ear; Music Assistant's static delay adds to it
+#   sbc_max_bitpool: 53
+#   aac_max_bitrate: 320000
+#   suspend_after: 5s       # suspend the Bluetooth stream after playback stopped
+#   yield_after: 2m         # an idle headphone gives its node to another one
+#   idle_disconnect: 15m    # release the headphone after this much idle time
+#   absent_after: 2m        # withdraw the player when no node sees the headphone
+
+# Home Assistant integration over MQTT discovery (off without a broker).
+# mqtt:
+#   broker: tcp://mqtt.local:1883
+#   username: a2dp-relay
+#   password: change-me
+#   base_topic: a2dp-relay
+#   discovery_prefix: homeassistant
+
+# voice:
+#   record: false   # save the microphone audio of voice sessions as WAV files

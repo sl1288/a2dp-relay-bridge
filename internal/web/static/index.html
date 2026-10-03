@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2DP Relay</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>A2DP Relay</h1>
+  <div id="conn" class="pill off hidden"></div>
+  <div class="spacer"></div>
+  <span id="user" class="small muted"></span>
+  <button id="lang" title="Sprache / Language"></button>
+</header>
+<main>
+  <section>
+    <h2 data-i18n="sectionHeadphones"></h2>
+    <div id="headphones" class="grid"></div>
+  </section>
+  <section>
+    <h2 data-i18n="sectionNodes"></h2>
+    <div id="nodes" class="grid"></div>
+  </section>
+  <section>
+    <h2 data-i18n="sectionPairing"></h2>
+    <div class="card" id="pairing"></div>
+  </section>
+  <footer id="meta" class="small muted"></footer>
+</main>
+<div id="toast" class="toast hidden"></div>
+<script src="i18n.js"></script>
+<script src="morph.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
