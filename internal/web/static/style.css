@@ -74,6 +74,27 @@ header button {
 }
 header button:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--header-text); }
 
+/* Embedded in Home Assistant: no app bar of our own (Home Assistant shows the
+   title above the frame); user, language and connection state sit in a slim
+   row on the page background, aligned with the content. */
+.embedded header {
+  position: static;
+  min-height: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 20px 0;
+  background: transparent;
+  color: var(--text);
+}
+.embedded header h1 { display: none; }
+.embedded header .muted, .embedded header #user { color: var(--muted); opacity: 1; }
+.embedded header #user a { color: var(--primary); text-decoration: none; }
+.embedded header .pill.off { background: color-mix(in srgb, var(--bad) 14%, transparent); color: var(--bad); }
+.embedded header button { height: 32px; border-color: var(--line); color: var(--primary); }
+.embedded header button:hover { background: color-mix(in srgb, var(--primary) 10%, transparent); border-color: var(--line); }
+.embedded main { padding-top: 0; }
+.embedded main > section:first-child h2 { margin-top: 4px; }
+
 main { padding: 16px 20px 48px; max-width: 1400px; margin: 0 auto; }
 h2 {
   font-size: 18px;

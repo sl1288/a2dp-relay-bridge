@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A2DP Relay</title>
 <link rel="stylesheet" href="style.css">
+<script>
+  // Embedded in Home Assistant (webpage dashboard, iframe) or ?embed: the
+  // host shows the title, so the page drops its own app bar. Set before the
+  // first paint.
+  if (window.self !== window.top || new URLSearchParams(location.search).has("embed")) {
+    document.documentElement.classList.add("embedded");
+  }
+</script>
 </head>
 <body>
 <header>
